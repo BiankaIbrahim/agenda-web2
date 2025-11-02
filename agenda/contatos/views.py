@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Contato
 from .forms import ContatoForm
+from .forms import LembreteForm # Certifique-se que você tem este import!
+from .models import Contato, Lembrete 
+
 
 def lista_contatos(request):
     contatos = Contato.objects.all()
@@ -31,7 +34,3 @@ def deletar_contato(request, id):
     contato = get_object_or_404(Contato, id=id)
     contato.delete()
     return redirect('lista_contatos')
-
-
-
-
