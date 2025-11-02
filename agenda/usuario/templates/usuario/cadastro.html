@@ -1,11 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro</title>
-</head>
-<body>
+{% extends 'contatos/base.html' %}
+{% block title %}Cadastro de Usuário{% endblock title %} 
+
+{% block content %}
     <h1>Página de Cadastro de Usuário</h1>
     
     <form method="post">
@@ -15,5 +11,4 @@
     </form>
     
     <p><a href="{% url 'lista_contatos' %}">Voltar para a Agenda</a></p>
-</body>
-</html>
+{% endblock content %}

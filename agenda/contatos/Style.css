@@ -1,0 +1,102 @@
+/* Definições de cores */
+:root {
+    --teal-primary: #008080; /* Verde Piscina Escuro (Teal Principal) */
+    --teal-light: #4D9696;   /* Verde Piscina Claro para botões */
+    --background: #FFFFFF;   /* Fundo Principal Branco */
+    --text-color: #333333;   /* Texto escuro */
+    --link-color: #FFFFFF;
+}
+
+/* Estilo do Corpo */
+body {
+    background-color: #f4f4f4; /* Fundo cinza claro para contraste */
+}
+
+/* Estilo do Container (Card principal) */
+.profile-card {
+    max-width: 600px;
+    margin: 40px auto;
+    background: var(--background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+.profile-card h1 {
+    color: var(--teal-primary);
+    font-size: 2em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--teal-light);
+}
+
+/* Informações do Perfil */
+.info-item {
+    padding: 12px 0;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    align-items: center;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-item .label {
+    font-weight: bold;
+    color: var(--teal-primary);
+    width: 120px;
+}
+
+.info-item .value {
+    color: var(--text-color);
+    flex-grow: 1;
+}
+
+/* Botões de Ação */
+.actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px; /* Espaçamento entre botões */
+}
+
+/* Sobrescreve botões Bootstrap para usar o tema Teal */
+.actions .btn {
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+/* Botão de Edição (Cor Primária) */
+.actions .btn-edit {
+    background-color: var(--teal-primary);
+    color: var(--link-color);
+    border-color: var(--teal-primary);
+}
+.actions .btn-edit:hover {
+    background-color: var(--teal-light);
+    border-color: var(--teal-light);
+}
+
+/* Botão de Logout (Cor de Aviso/Perigo padrão do Bootstrap) */
+.actions .btn-logout {
+    background-color: #dc3545; /* Vermelho padrão para ação destrutiva */
+    color: var(--link-color);
+    border-color: #dc3545;
+}
+.actions .btn-logout:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+/* Botão de Retorno (Cor Secundária Bootstrap) */
+.actions .btn-back {
+    background-color: #6c757d; 
+    color: var(--link-color);
+    border-color: #6c757d;
+}
+.actions .btn-back:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+}

@@ -67,3 +67,14 @@ def logout_usuario(request):
         del request.session['usuario_id']
     messages.info(request, 'Você saiu da sua conta.')
     return redirect('login_usuario')
+
+def visualizar_perfil(request):
+    usuario_id = request.session.get('usuario_id')
+    
+    if not usuario_id:
+        messages.warning(request, 'Você precisa estar logado para ver o perfil.')
+        return redirect('login_usuario')
+        
+    usuario = get_object_or_404(Usuario, id=usuario_id)
+    
+    return render(request, 'usuario/perfil.html', {'usuario': usuario})
