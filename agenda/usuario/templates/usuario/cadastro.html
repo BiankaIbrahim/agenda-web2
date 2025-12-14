@@ -1,14 +1,75 @@
-{% extends 'contatos/base.html' %}
-{% block title %}Cadastro de Usuário{% endblock title %} 
-
 {% block content %}
-    <h1>Página de Cadastro de Usuário</h1>
-    
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Cadastrar</button>
-    </form>
-    
-    <p><a href="{% url 'lista_contatos' %}">Voltar para a Agenda</a></p>
+<style>
+    .cadastro-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0fdf4;
+    }
+
+    .cadastro-box {
+        width: 400px;
+        padding: 30px;
+        border: 2px solid #0b5d1e;
+        border-radius: 8px;
+        background-color: #f4fff6;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cadastro-box h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0b5d1e;
+    }
+
+    .cadastro-box button {
+        width: 100%;
+        padding: 10px;
+        background-color: #0b5d1e;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .cadastro-box button:hover {
+        background-color: #094a18;
+    }
+
+    .cadastro-box p {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .cadastro-box a {
+        color: #0b5d1e;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .cadastro-box a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="cadastro-wrapper">
+    <div class="cadastro-box">
+        <h2>Cadastro de Usuário</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <p>
+            <a href="{% url 'login_usuario' %}">
+                Realizar Login
+            </a>
+        </p>
+    </div>
+</div>
 {% endblock content %}

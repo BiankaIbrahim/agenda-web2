@@ -1,11 +1,35 @@
 {% extends 'contatos/base.html' %}
 
 {% block content %}
-<h2>{% if form.instance.pk %}Editar Contato{% else %}Novo Contato{% endif %}</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Salvar</button>
-    <a href="{% url 'lista_contatos' %}" class="btn btn-secondary">Cancelar</a>
-</form>
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="border rounded p-4 shadow"
+         style="width: 450px; border-color: #0b5d1e; background-color: #f4fff6;">
+
+        <h2 class="text-center mb-4" style="color: #0b5d1e;">
+            {% if form.instance.pk %}
+                Editar Contato
+            {% else %}
+                Novo Contato
+            {% endif %}
+        </h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit"
+                    class="btn w-100 mb-2"
+                    style="background-color: #0b5d1e; color: white;">
+                Salvar
+            </button>
+
+            <a href="{% url 'lista_contatos' %}"
+               class="btn btn-outline-success w-100"
+               style="border-color: #0b5d1e; color: #0b5d1e;">
+                Cancelar
+            </a>
+        </form>
+    </div>
+</div>
 {% endblock %}
+
