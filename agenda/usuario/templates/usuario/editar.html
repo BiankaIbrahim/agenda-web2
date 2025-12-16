@@ -1,9 +1,69 @@
 {% extends 'contatos/base.html' %}
+
 {% block content %}
-    <h2>Editar Perfil de Usuário</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }} 
-        <button type="submit">Salvar Alterações</button>
-    </form>
+<style>
+    .editar-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh;
+    }
+
+    .editar-box {
+        width: 400px;
+        padding: 30px;
+        border: 2px solid #0b5d1e;
+        border-radius: 8px;
+        background-color: #f4fff6;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .editar-box h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0b5d1e;
+    }
+
+    .btn-verde {
+        width: 100%;
+        padding: 10px;
+        background-color: #0b5d1e;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .btn-verde:hover {
+        background-color: #094a18;
+    }
+
+    .btn-voltar {
+        background-color: #14532d;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+    }
+</style>
+
+<div class="editar-wrapper">
+    <div class="editar-box">
+        <h2>Editar Perfil</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="btn-verde">
+                Salvar Alterações
+            </button>
+        </form>
+
+        <a href="{% url 'visualizar_perfil' %}" class="btn-verde btn-voltar">
+            Voltar
+        </a>
+    </div>
+</div>
 {% endblock %}

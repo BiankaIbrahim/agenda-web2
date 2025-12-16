@@ -6,6 +6,9 @@ from .forms import LembreteForm # Certifique-se que você tem este import!
 from .models import Contato, Lembrete 
 from django.conf import settings 
 
+from .decorators import contato_logado 
+
+@contato_logado
 def lista_contatos(request):
     contatos = Contato.objects.all()
     return render(request, 'contatos/lista.html', {'contatos': contatos})
@@ -13,6 +16,7 @@ def lista_contatos(request):
 
 NOTIFICACAO_URL = getattr(settings, "NOTIFY_URL", None)  # definir em settings.py
 
+@contato_logado
 def criar_contato(request):
     if request.method == 'POST':
         form = ContatoForm(request.POST)
@@ -33,6 +37,7 @@ def criar_contato(request):
         form = ContatoForm()
     return render(request, 'contatos/form.html', {'form': form})
 
+@contato_logado
 def editar_contato(request, id):
     contato = get_object_or_404(Contato, id=id)
     if request.method == 'POST':
@@ -44,6 +49,7 @@ def editar_contato(request, id):
         form = ContatoForm(instance=contato)
     return render(request, 'contatos/form.html', {'form': form})
 
+@contato_logado
 def deletar_contato(request, id):
     contato = get_object_or_404(Contato, id=id)
     contato.delete()
