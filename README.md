@@ -53,8 +53,6 @@ O principal objetivo deste projeto é consolidar conhecimentos em **desenvolvime
 
 ##  Autenticação
 
-obs: sessão, feita no próprio app, não usando Django Auth padrão.
-
 ✔️ Cadastro de usuários com senha criptografada  
 ✔️ Login com verificação de hash  
 ✔️ Sessão para manter usuário autenticado  
